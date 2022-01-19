@@ -7,13 +7,13 @@ import { TweetPage } from "../pages/TweetPage";
 import { Users } from "../pages/Users";
 
 export function MainLayout() {
-  let location = useLocation();
+  //let location = useLocation();
 
   return (
     <>
-      <header className="flex space-x-6 items-center justify-between px-8 py-4 border-b">
+      {/* <header className="flex space-x-6 items-center justify-between px-8 py-4 border-b">
         <div className="text-xl font-bold">{location.pathname}</div>
-      </header>
+      </header> */}
       <Routes>
         <Route path="" element={<Home />}></Route>
         <Route path="topics" element={<Topics />}>

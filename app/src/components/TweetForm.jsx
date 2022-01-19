@@ -43,7 +43,7 @@ const TweetForm = (props) => {
   };
   if (!connected) {
     return (
-      <div className="px-8 py-4 bg-gray-50 text-gray-500 text-center border-b">
+      <div className="px-8 py-4 text-red-400 text-center border-b">
         Connect your wallet to start tweeting...
       </div>
     );

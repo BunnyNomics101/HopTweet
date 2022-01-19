@@ -15,7 +15,7 @@ export const TweetSearch = (props) => {
       <div className="relative border-b">
         <input
           type="text"
-          className="text-gray-700 w-full pl-16 pr-32 py-4 bg-gray-50"
+          className="text-gray-100 w-full pl-16 pr-32 py-4 bg-black"
           placeholder={placeholder}
           value={searchTopic}
           onChange={(e) => setSearchTopic(e.target.value)}

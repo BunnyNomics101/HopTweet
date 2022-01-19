@@ -19,7 +19,10 @@ const TweetCard = (props) => {
   return (
     <div className="px-8 py-4">
       <div>
-        <h3 className="inline font-semibold" title="tweet.author">
+        <h3
+          className="inline font-semibold text-sm text-gray-200"
+          title="tweet.author"
+        >
           {/* Link to author page or the profile page if it's our own tweet */}
           <Link
             to={`${authorRoute.name}/${authorRoute.params.author}`}
@@ -39,12 +42,14 @@ const TweetCard = (props) => {
           </Link>
         </time>
       </div>
-      <p className="whitespace-pre-wrap">{tweet.content}</p>
+      <p className="whitespace-pre-wrap break-words text-sm text-gray-50">
+        {tweet.content}
+      </p>
       {/* Link to the topic page.  */}
       {tweet.topic && (
         <Link
           to={`/topics/${tweet.topic}`}
-          className="inline-block mt-2 text-primary-light hover:underline"
+          className="inline-block mt-2 text-green-400 text-sm hover:underline"
         >
           #{tweet.topic}
         </Link>
