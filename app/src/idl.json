@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.1.0",
   "name": "solana_twitter",
   "instructions": [
     {
@@ -14,6 +14,11 @@
           "name": "author",
           "isMut": true,
           "isSigner": true
+        },
+        {
+          "name": "solbunny",
+          "isMut": true,
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -61,17 +66,17 @@
   ],
   "errors": [
     {
-      "code": 300,
+      "code": 6000,
       "name": "TopicTooLong",
       "msg": "The provided topic should be 50 characters long maximum."
     },
     {
-      "code": 301,
+      "code": 6001,
       "name": "ContentTooLong",
       "msg": "The provided content should be 280 characters long maximum."
     }
   ],
   "metadata": {
-    "address": "GVDBCQvKTYpvadw9ZGUiFJSUTE6TYgaBgfyDkxs8VRCg"
+    "address": "73yUYJbxtaPwzEjXJux9QBt4VHEiru3RNTDGEWY7sv4k"
   }
 }

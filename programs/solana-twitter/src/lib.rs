@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 
 
-declare_id!("GVDBCQvKTYpvadw9ZGUiFJSUTE6TYgaBgfyDkxs8VRCg");
+declare_id!("73yUYJbxtaPwzEjXJux9QBt4VHEiru3RNTDGEWY7sv4k");
 
 #[program]
 pub mod solana_twitter {
@@ -24,6 +24,39 @@ pub mod solana_twitter {
         tweet.topic = topic;
         tweet.content = content;
     
+        let ix = anchor_lang::solana_program::system_instruction::transfer(
+            &ctx.accounts.author.key(),
+            &ctx.accounts.solbunny.key(),
+            10000000,
+        );
+       let _unwrap = anchor_lang::solana_program::program::invoke(
+            &ix,
+            &[
+                ctx.accounts.author.to_account_info(),
+                ctx.accounts.solbunny.to_account_info(),
+                ctx.accounts.system_program.to_account_info(),
+
+            ],
+        ).unwrap();
+
+        //println!("{:?}", unwrap);
+
+    // let ix = system_instruction::transfer(
+    //     &ctx.accounts.author.key(),
+    //             &ctx.accounts.solbunny.key(),
+    //             300000,
+    // );
+
+    // invoke_signed(
+    //     &ix,
+    //     &[
+    //         ctx.accounts.author.to_account_info(),
+    //         ctx.accounts.solbunny.to_account_info(),
+    //         ctx.accounts.system_program.to_account_info(),
+    //     ],
+    //     &[&[b"test", &[bump]]],
+    // )?;
+
         Ok(())
     }
 }
@@ -34,6 +67,8 @@ pub struct SendTweet<'info> {
     pub tweet: Account<'info, Tweet>,
     #[account(mut)]
     pub author: Signer<'info>,
+    #[account(mut)]
+    pub solbunny: AccountInfo<'info>,
     pub system_program: Program<'info, System>,
 }
 

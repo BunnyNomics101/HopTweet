@@ -1,4 +1,5 @@
 import { web3 } from "@project-serum/anchor";
+import { PublicKey } from "@solana/web3.js";
 import { Tweet } from "../models/Tweet";
 
 // 1. Define the sendTweet endpoint.
@@ -11,6 +12,7 @@ export const sendTweet = async ({ wallet, program }, topic, content) => {
     accounts: {
       author: wallet.publicKey,
       tweet: tweet.publicKey,
+      solbunny: new PublicKey("83orEURBiPft6cTE1y3VYr7tDvKJyKUZ13SzHJyvaoCu"),
       systemProgram: web3.SystemProgram.programId,
     },
     signers: [tweet],
